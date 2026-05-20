@@ -1,0 +1,3110 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wakanda Restaurant — Ouagadougou · Ouvert 24h/24</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --black: #080604;
+        --dark: #100e0a;
+        --dark2: #1a1610;
+        --amber: #c8861a;
+        --amber2: #e8a832;
+        --amber3: #f5c860;
+        --red: #8b1a1a;
+        --cream: #f0e8d8;
+        --text: #d4c8b0;
+        --muted: #7a6e5a;
+        --white: #faf6ef;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Jost", sans-serif;
+        background: var(--black);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6%;
+        height: 70px;
+        background: rgba(8, 6, 4, 0.92);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(200, 134, 26, 0.15);
+      }
+      .nav-logo {
+        font-family: "Bebas Neue", cursive;
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+        color: var(--white);
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--amber2);
+      }
+      .nav-center {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-center a {
+        color: rgba(212, 200, 176, 0.6);
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-center a:hover {
+        color: var(--amber2);
+      }
+      .nav-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        color: var(--amber2);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: rgba(200, 134, 26, 0.1);
+        border: 1px solid rgba(200, 134, 26, 0.25);
+        padding: 0.4rem 0.9rem;
+        border-radius: 2px;
+      }
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--amber2);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left {
+        background: var(--dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 140px 8% 80px 6%;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-left::after {
+        content: "";
+        position: absolute;
+        right: -1px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--amber),
+          transparent
+        );
+      }
+      .hero-right {
+        background: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        padding: 140px 6% 80px 8%;
+      }
+      .hero-pattern {
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 40px,
+            rgba(200, 134, 26, 0.02) 40px,
+            rgba(200, 134, 26, 0.02) 41px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 40px,
+            rgba(200, 134, 26, 0.02) 40px,
+            rgba(200, 134, 26, 0.02) 41px
+          );
+      }
+      .hero-glow {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(200, 134, 26, 0.08) 0%,
+          transparent 70%
+        );
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        animation: up 0.8s 0.1s both;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--amber);
+      }
+      .hero-eyebrow span {
+        font-size: 0.7rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--amber2);
+        font-weight: 600;
+      }
+      .hero h1 {
+        font-family: "Bebas Neue", cursive;
+        font-size: clamp(5rem, 12vw, 9rem);
+        line-height: 0.9;
+        color: var(--white);
+        letter-spacing: 0.05em;
+        animation: up 0.8s 0.2s both;
+      }
+      .hero h1 .accent {
+        color: var(--amber2);
+        display: block;
+      }
+      .hero h1 .outline {
+        display: block;
+        -webkit-text-stroke: 1px rgba(200, 134, 26, 0.5);
+        color: transparent;
+      }
+      .hero-sub {
+        font-family: "Tenor Sans", serif;
+        font-size: 1.05rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 2rem 0 3rem;
+        max-width: 420px;
+        font-weight: 400;
+        animation: up 0.8s 0.3s both;
+      }
+      .hero-sub strong {
+        color: var(--text);
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: up 0.8s 0.4s both;
+      }
+      .btn-amber {
+        background: var(--amber);
+        color: var(--black);
+        padding: 1rem 2.5rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.25s;
+        box-shadow: 0 4px 24px rgba(200, 134, 26, 0.3);
+      }
+      .btn-amber:hover {
+        background: var(--amber2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(200, 134, 26, 0.45);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--cream);
+        padding: 1rem 2.5rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        border: 1px solid rgba(200, 134, 26, 0.35);
+        border-radius: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.25s;
+      }
+      .btn-outline:hover {
+        border-color: var(--amber);
+        color: var(--amber2);
+      }
+      /* Right side visual */
+      .hero-visual {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+      .hero-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .hcard {
+        background: rgba(26, 22, 16, 0.8);
+        border: 1px solid rgba(200, 134, 26, 0.12);
+        border-radius: 4px;
+        padding: 1.5rem;
+        backdrop-filter: blur(10px);
+        transition: border-color 0.3s;
+        animation: up 0.8s both;
+      }
+      .hcard:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .hcard:nth-child(2) {
+        animation-delay: 0.35s;
+        margin-left: 2rem;
+      }
+      .hcard:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+      .hcard:hover {
+        border-color: rgba(200, 134, 26, 0.35);
+      }
+      .hcard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.8rem;
+      }
+      .hcard-icon {
+        font-size: 1.8rem;
+      }
+      .hcard-badge {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+        border: 1px solid rgba(200, 134, 26, 0.3);
+        padding: 0.2rem 0.6rem;
+        border-radius: 2px;
+      }
+      .hcard h4 {
+        font-family: "Tenor Sans", serif;
+        font-size: 1rem;
+        color: var(--white);
+        margin-bottom: 0.3rem;
+      }
+      .hcard p {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.6;
+        font-weight: 300;
+      }
+      /* Stats strip */
+      .hero-stats {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--dark2);
+        border-top: 1px solid rgba(200, 134, 26, 0.1);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        z-index: 10;
+      }
+      .hstat {
+        padding: 1.5rem 2rem;
+        text-align: center;
+        border-right: 1px solid rgba(200, 134, 26, 0.08);
+      }
+      .hstat:last-child {
+        border-right: none;
+      }
+      .hstat-num {
+        font-family: "Bebas Neue", cursive;
+        font-size: 2.2rem;
+        color: var(--amber2);
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
+      .hstat-lbl {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.2rem;
+        font-weight: 500;
+      }
+
+      /* SECTION COMMON */
+      section {
+        padding: 100px 6%;
+      }
+      .sec-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+      }
+      .sec-eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 1px;
+        background: var(--amber);
+      }
+      .sec-eyebrow span {
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--amber);
+        font-weight: 600;
+      }
+      .sec-title {
+        font-family: "Bebas Neue", cursive;
+        font-size: clamp(3rem, 6vw, 5rem);
+        color: var(--white);
+        line-height: 0.95;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+      .sec-title span {
+        color: var(--amber2);
+      }
+      .sec-sub {
+        font-family: "Tenor Sans", serif;
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 500px;
+      }
+
+      /* ABOUT */
+      .about {
+        background: var(--dark);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .about-visual-wrap {
+        position: relative;
+        height: 500px;
+      }
+      .about-img-main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80%;
+        height: 80%;
+        background: linear-gradient(160deg, var(--dark2) 0%, #0a0800 100%);
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10rem;
+        border: 1px solid rgba(200, 134, 26, 0.1);
+      }
+      .about-img-accent {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 55%;
+        height: 55%;
+        background: linear-gradient(135deg, var(--amber) 0%, var(--red) 100%);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+      }
+      .about-badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: var(--black);
+        border: 1px solid var(--amber);
+        color: var(--amber2);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.5rem 1rem;
+        border-radius: 2px;
+        z-index: 2;
+      }
+      .about-feats {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .about-feat {
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+      .feat-num {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.8rem;
+        color: rgba(200, 134, 26, 0.25);
+        line-height: 1;
+        flex-shrink: 0;
+        width: 40px;
+      }
+      .feat-body h4 {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--cream);
+        margin-bottom: 0.2rem;
+      }
+      .feat-body p {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.6;
+        font-weight: 300;
+      }
+
+      /* MENU */
+      .menu-section {
+        background: var(--black);
+      }
+      .menu-head {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .menu-head .sec-eyebrow {
+        justify-content: center;
+      }
+      .menu-head .sec-eyebrow::before {
+        display: none;
+      }
+      .menu-head .sec-sub {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .menu-tabs {
+        display: flex;
+        gap: 0;
+        justify-content: center;
+        overflow: hidden;
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        border-radius: 2px;
+        width: fit-content;
+        margin: 0 auto 3.5rem;
+      }
+      .mtab {
+        background: transparent;
+        color: var(--muted);
+        padding: 0.7rem 2rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        border-right: 1px solid rgba(200, 134, 26, 0.15);
+      }
+      .mtab:last-child {
+        border-right: none;
+      }
+      .mtab.active,
+      .mtab:hover {
+        background: var(--amber);
+        color: var(--black);
+      }
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1px;
+        background: rgba(200, 134, 26, 0.08);
+        border: 1px solid rgba(200, 134, 26, 0.08);
+      }
+      .mitem {
+        background: var(--dark);
+        padding: 2rem;
+        transition: background 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .mitem::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: rgba(200, 134, 26, 0.05);
+        transition: width 0.3s;
+      }
+      .mitem:hover {
+        background: var(--dark2);
+      }
+      .mitem:hover::before {
+        width: 100%;
+        pointer-events: none;
+      }
+      .mitem-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .mitem-name {
+        font-family: "Tenor Sans", serif;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+      .mitem-price {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.2rem;
+        color: var(--amber2);
+        letter-spacing: 0.05em;
+        margin-left: 1rem;
+        white-space: nowrap;
+      }
+      .mitem-desc {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.7;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+      }
+      .mitem-tag {
+        display: inline-block;
+        margin-top: 0.7rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--amber);
+        border: 1px solid rgba(200, 134, 26, 0.25);
+        padding: 0.2rem 0.6rem;
+        border-radius: 2px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* RESERVE */
+      .reserve-section {
+        background: var(--dark2);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
+        min-height: 500px;
+      }
+      .reserve-left {
+        background: var(--amber);
+        padding: 80px 6% 80px 6%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .reserve-left::before {
+        content: "WAKANDA";
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        font-family: "Bebas Neue", cursive;
+        font-size: 10rem;
+        color: rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.05em;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .reserve-left .sec-eyebrow::before {
+        background: var(--black);
+      }
+      .reserve-left .sec-eyebrow span {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .reserve-left .sec-title {
+        color: var(--black);
+      }
+      .reserve-left p {
+        font-size: 0.95rem;
+        color: rgba(0, 0, 0, 0.65);
+        line-height: 1.8;
+        margin: 1.5rem 0 2.5rem;
+        font-family: "Tenor Sans", serif;
+      }
+      .wa-big {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: var(--black);
+        color: var(--amber2);
+        padding: 1.1rem 2.5rem;
+        border-radius: 2px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        transition: all 0.25s;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        width: fit-content;
+      }
+      .wa-big:hover {
+        background: #111;
+        transform: translateY(-2px);
+      }
+      .contact-infos {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .cinfo {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      .cinfo .icon {
+        font-size: 1.1rem;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .cinfo p {
+        font-size: 0.88rem;
+        color: rgba(0, 0, 0, 0.75);
+        font-weight: 600;
+      }
+      .reserve-right {
+        padding: 80px 6%;
+        background: var(--dark2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .reserve-right h3 {
+        font-family: "Bebas Neue", cursive;
+        font-size: 2.5rem;
+        color: var(--white);
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+      .reserve-right p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      .rform {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .rform-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .rfield {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .rfield label {
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .rfield input,
+      .rfield select {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(200, 134, 26, 0.15);
+        color: var(--text);
+        padding: 0.8rem 1rem;
+        font-family: "Jost", sans-serif;
+        font-size: 0.88rem;
+        border-radius: 2px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .rfield input:focus,
+      .rfield select:focus {
+        border-color: var(--amber);
+      }
+      .rfield input::placeholder {
+        color: var(--muted);
+      }
+      .rfield select option {
+        background: var(--dark2);
+      }
+      .rform .btn-amber {
+        margin-top: 0.5rem;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--black);
+        padding: 60px 6% 30px;
+        border-top: 1px solid rgba(200, 134, 26, 0.1);
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 2rem;
+      }
+      .footer-logo {
+        font-family: "Bebas Neue", cursive;
+        font-size: 2.5rem;
+        color: var(--white);
+        letter-spacing: 0.1em;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .footer-logo span {
+        color: var(--amber2);
+      }
+      .footer-brand p {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.8;
+        font-weight: 300;
+        max-width: 260px;
+      }
+      .open-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(200, 134, 26, 0.1);
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        color: var(--amber2);
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 0.3rem 0.8rem;
+        border-radius: 2px;
+        margin-top: 1rem;
+        letter-spacing: 0.08em;
+      }
+      footer h6 {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 1.2rem;
+        font-weight: 700;
+      }
+      footer ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      footer ul a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.83rem;
+        font-weight: 300;
+        transition: color 0.2s;
+      }
+      footer ul a:hover {
+        color: var(--amber2);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--muted);
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .socials {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .soc {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .soc:hover {
+        border-color: var(--amber);
+        color: var(--amber2);
+      }
+
+      @media (max-width: 768px) {
+        nav .nav-center {
+          display: none;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .reserve-section {
+          grid-template-columns: 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        section {
+          padding: 70px 5%;
+        }
+        .footer-bottom {
+          flex-direction: column;
+        }
+        .rform-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════
+     BANNIÈRE COMMANDE EN LIGNE — visible sur toutes les pages
+═══════════════════════════════════════════════ -->
+    <div
+      id="order-bar"
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: linear-gradient(135deg, #0a1428 0%, #1a2a40 100%);
+        border-top: 2px solid #e8920a;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+        font-family: system-ui, sans-serif;
+      "
+    >
+      <!-- Gauche : label -->
+      <div
+        style="display: flex; align-items: center; gap: 10px; flex-shrink: 0"
+      >
+        <div
+          style="
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #25d366;
+            animation: blink2 1.5s infinite;
+            flex-shrink: 0;
+          "
+        ></div>
+        <span
+          style="
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+          "
+        >
+          Commandez & Payez en ligne
+        </span>
+      </div>
+      <!-- Centre : badges paiement -->
+      <div
+        style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"
+      >
+        <span
+          style="
+            background: #ff6600;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.04em;
+          "
+          >OM</span
+        >
+        <span
+          style="
+            background: #1a73e8;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+          "
+          >Wave</span
+        >
+        <span
+          style="
+            background: #0066cc;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+          "
+          >Moov</span
+        >
+        <span
+          style="
+            background: #25d366;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+          "
+          >WhatsApp</span
+        >
+        <span
+          style="
+            background: #2d9b4e;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+          "
+          >💵 Cash</span
+        >
+      </div>
+      <!-- Droite : bouton -->
+      <a
+        href="#order"
+        onclick="document.getElementById('order-bar').style.display = 'none'"
+        style="
+          background: #e8920a;
+          color: white;
+          padding: 8px 18px;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 800;
+          text-decoration: none;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          white-space: nowrap;
+          flex-shrink: 0;
+          transition: background 0.2s;
+        "
+        onmouseover="this.style.background = '#FF9A1A'"
+        onmouseout="this.style.background = '#E8920A'"
+      >
+        Commander →
+      </a>
+      <!-- Fermer -->
+      <button
+        onclick="document.getElementById('order-bar').style.display = 'none'"
+        style="
+          background: transparent;
+          border: none;
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 1.2rem;
+          cursor: pointer;
+          padding: 0 4px;
+          flex-shrink: 0;
+          line-height: 1;
+        "
+      >
+        ×
+      </button>
+    </div>
+    <style>
+      @keyframes blink2 {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      body {
+        padding-bottom: 60px;
+      }
+    </style>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">Wa<span>kan</span>da</a>
+      <ul class="nav-center">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#reserver">Réserver</a></li>
+      </ul>
+      <div class="nav-badge">
+        <div class="badge-dot"></div>
+        Ouvert 24h/24
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span>Restaurant · Ouagadougou · Burkina Faso 🇧🇫</span>
+        </div>
+        <h1>
+          L'expérience
+          <span class="accent">Wakanda</span>
+          <span class="outline">vous attend</span>
+        </h1>
+        <p class="hero-sub">
+          Un cadre unique et chaleureux au cœur de Ouagadougou.
+          <strong>Cuisine raffinée, ambiance incomparable</strong> et service
+          d'exception — disponible 24h/24, 7j/7.
+        </p>
+        <div class="hero-actions">
+          <a href="#reserver" class="btn-amber">Réserver une table</a>
+          <a href="#menu" class="btn-outline">Voir le menu</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-visual">
+          <div class="hero-cards">
+            <div class="hcard">
+              <div class="hcard-top">
+                <span class="hcard-icon">🏆</span>
+                <span class="hcard-badge">Top Ouaga</span>
+              </div>
+              <h4>⭐ 4,1 / 5 sur Google</h4>
+              <p>
+                247 avis de clients satisfaits — l'un des restaurants les mieux
+                notés de Ouagadougou.
+              </p>
+            </div>
+            <div class="hcard">
+              <div class="hcard-top">
+                <span class="hcard-icon">🌙</span>
+                <span class="hcard-badge">Unique</span>
+              </div>
+              <h4>Ouvert 24h/24 — 7j/7</h4>
+              <p>
+                Le seul restaurant de Ouagadougou disponible à toute heure du
+                jour et de la nuit.
+              </p>
+            </div>
+            <div class="hcard">
+              <div class="hcard-top">
+                <span class="hcard-icon">🎉</span>
+                <span class="hcard-badge">Événements</span>
+              </div>
+              <h4>Privatisation disponible</h4>
+              <p>
+                Anniversaires, soirées d'entreprise, célébrations — cadre idéal
+                pour vos événements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">4,1</div>
+          <div class="hstat-lbl">Note Google</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">247</div>
+          <div class="hstat-lbl">Avis clients</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">24H</div>
+          <div class="hstat-lbl">Ouverture</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">7J/7</div>
+          <div class="hstat-lbl">Disponible</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-grid">
+        <div class="about-visual-wrap">
+          <div class="about-img-main">
+            🍽️
+            <div class="about-badge">⭐ 4,1 · 247 avis</div>
+          </div>
+          <div class="about-img-accent">🌙</div>
+        </div>
+        <div>
+          <div class="sec-eyebrow"><span>Notre histoire</span></div>
+          <h2 class="sec-title">
+            L'art de la<br />table <span>revisité</span>
+          </h2>
+          <p class="sec-sub">
+            Wakanda Restaurant vous invite dans un espace unique à Ouagadougou —
+            où la gastronomie rencontre une ambiance inoubliable. Un lieu de vie
+            disponible à toute heure.
+          </p>
+          <div class="about-feats">
+            <div class="about-feat">
+              <div class="feat-num">01</div>
+              <div class="feat-body">
+                <h4>Cuisine de qualité</h4>
+                <p>
+                  Des plats soigneusement préparés avec les meilleurs
+                  ingrédients pour une expérience gustative incomparable.
+                </p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-num">02</div>
+              <div class="feat-body">
+                <h4>Cadre exceptionnel</h4>
+                <p>
+                  Une salle élégante avec piscine, pensée pour votre confort et
+                  votre plaisir en toutes occasions.
+                </p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-num">03</div>
+              <div class="feat-body">
+                <h4>Ouvert 24h/24 — Le seul à Ouaga</h4>
+                <p>
+                  Que ce soit à minuit ou à l'aube, Wakanda vous accueille avec
+                  le même niveau d'excellence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+      <div class="menu-head">
+        <div class="sec-eyebrow"><span>Notre carte</span></div>
+        <h2 class="sec-title">Notre <span>Menu</span></h2>
+        <p class="sec-sub">
+          Une sélection de plats et de saveurs pour tous les goûts, servis avec
+          soin à toute heure.
+        </p>
+      </div>
+      <div class="menu-tabs">
+        <button class="mtab active">Entrées</button>
+        <button class="mtab">Plats</button>
+        <button class="mtab">Pizzas</button>
+        <button class="mtab">Desserts</button>
+        <button class="mtab">Boissons</button>
+      </div>
+      <div class="menu-grid">
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Salade Wakanda</span
+            ><span class="mitem-price">3 500 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Mesclun frais, tomates cerises, avocat, vinaigrette maison aux
+            herbes aromatiques.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">3,500 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Salade Wakanda"
+              onclick="addToCart('Salade Wakanda', 3500, '🥗')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Végétarien</span>
+        </div>
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Brochettes de Bœuf</span
+            ><span class="mitem-price">8 500 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Pièce de bœuf mariné, grillée à la perfection, servie avec frites et
+            sauce maison.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">8,500 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Brochettes de Bœuf"
+              onclick="addToCart('Brochettes de Bœuf', 8500, '🥩')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Chef recommande</span>
+        </div>
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Pizza Margherita</span
+            ><span class="mitem-price">5 500 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Pâte fine croustillante, sauce tomate maison, mozzarella fondante et
+            basilic frais.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">5,500 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Pizza Margherita"
+              onclick="addToCart('Pizza Margherita', 5500, '🍕')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Bestseller</span>
+        </div>
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Poulet Rôti</span
+            ><span class="mitem-price">7 000 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Poulet fermier rôti lentement aux épices, servi avec garniture de
+            légumes sautés.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">7,000 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Poulet Rôti"
+              onclick="addToCart('Poulet Rôti', 7000, '🍗')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Signature</span>
+        </div>
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Poisson du Jour</span
+            ><span class="mitem-price">9 000 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Poisson frais du marché, cuisiné selon la technique du jour par
+            notre chef.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">9,000 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Poisson du Jour"
+              onclick="addToCart('Poisson du Jour', 9000, '🐟')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Frais quotidien</span>
+        </div>
+        <div class="mitem">
+          <div class="mitem-top">
+            <span class="mitem-name">Fondant Chocolat</span
+            ><span class="mitem-price">2 500 FCFA</span>
+          </div>
+          <div class="mitem-desc">
+            Cœur coulant au chocolat noir, servi avec une boule de glace vanille
+            et coulis.
+          </div>
+          <div class="add-to-cart">
+            <span class="acp">2,500 FCFA</span>
+            <button
+              class="acbtn"
+              data-name="Fondant Chocolat"
+              onclick="addToCart('Fondant Chocolat', 2500, '🍫')"
+            >
+              + Ajouter
+            </button>
+          </div>
+          <span class="mitem-tag">Dessert</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVE -->
+    <div class="reserve-section" id="reserver">
+      <div class="reserve-left">
+        <div class="sec-eyebrow"><span>Nous rejoindre</span></div>
+        <h2 class="sec-title" style="font-size: 3.5rem">
+          Réservez<br />votre table
+        </h2>
+        <p>
+          Assurez votre place pour une expérience mémorable. Réservation
+          confirmée rapidement par notre équipe.
+        </p>
+        <a href="https://wa.me/22605145454" class="wa-big">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          Réserver sur WhatsApp
+        </a>
+        <div class="contact-infos">
+          <div class="cinfo">
+            <span class="icon">📞</span>
+            <p>+226 05 14 54 54</p>
+          </div>
+          <div class="cinfo">
+            <span class="icon">📍</span>
+            <p>09bp1087 Ouaga09, Ouagadougou</p>
+          </div>
+          <div class="cinfo">
+            <span class="icon">🕐</span>
+            <p>Ouvert 24h/24 — 7j/7</p>
+          </div>
+        </div>
+      </div>
+      <div class="reserve-right">
+        <h3>Demande de réservation</h3>
+        <p>
+          Remplissez ce formulaire et nous vous confirmons votre table dans les
+          plus brefs délais.
+        </p>
+        <div class="rform">
+          <div class="rform-row">
+            <div class="rfield">
+              <label>Nom complet</label
+              ><input type="text" placeholder="Votre nom" />
+            </div>
+            <div class="rfield">
+              <label>Téléphone</label
+              ><input type="tel" placeholder="+226 XX XX XX XX" />
+            </div>
+          </div>
+          <div class="rform-row">
+            <div class="rfield"><label>Date</label><input type="date" /></div>
+            <div class="rfield"><label>Heure</label><input type="time" /></div>
+          </div>
+          <div class="rfield">
+            <label>Nombre de personnes</label>
+            <select>
+              <option>1 personne</option>
+              <option>2 personnes</option>
+              <option>3-4 personnes</option>
+              <option>5-10 personnes</option>
+              <option>10+ personnes (événement)</option>
+            </select>
+          </div>
+          <button
+            class="btn-amber"
+            onclick="window.open('https://wa.me/22605145454', '_blank')"
+          >
+            Confirmer la réservation →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">Wa<span>kan</span>da</a>
+          <p>
+            Restaurant unique à Ouagadougou — cuisine raffinée, ambiance
+            incomparable. Le seul restaurant ouvert 24h/24 au Burkina.
+          </p>
+          <div class="open-badge">
+            <div class="badge-dot"></div>
+            Ouvert 24h/24 · 7j/7
+          </div>
+        </div>
+        <div>
+          <h6>Navigation</h6>
+          <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reserver">Réservation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Contact</h6>
+          <ul>
+            <li><a href="tel:+22605145454">+226 05 14 54 54</a></li>
+            <li><a href="https://wa.me/22605145454">WhatsApp</a></li>
+            <li><a href="#">09bp1087 Ouaga09</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Wakanda Restaurant — Ouagadougou, Burkina Faso 🇧🇫</p>
+        <div class="socials">
+          <a href="#" class="soc">📘</a>
+          <a href="#" class="soc">📸</a>
+          <a href="https://wa.me/22605145454" class="soc">💬</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll(".mtab").forEach((b) => {
+        b.addEventListener("click", () => {
+          document
+            .querySelectorAll(".mtab")
+            .forEach((x) => x.classList.remove("active"));
+          b.classList.add("active");
+        });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return; // ignorer les liens vides
+          try {
+            const t = document.querySelector(href);
+            if (t) {
+              e.preventDefault();
+              t.scrollIntoView({ behavior: "smooth" });
+            }
+          } catch (err) {
+            /* ignorer les sélecteurs invalides */
+          }
+        });
+      });
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+     SECTION COMMANDE & PAIEMENT RAPIDE
+═══════════════════════════════════════════════ -->
+    <section
+      id="order"
+      style="
+        background: linear-gradient(160deg, #0a1428 0%, #1a2a40 100%);
+        padding: 70px 6%;
+        font-family: system-ui, sans-serif;
+      "
+    >
+      <div style="max-width: 900px; margin: 0 auto">
+        <!-- Titre -->
+        <div style="text-align: center; margin-bottom: 40px">
+          <div
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              background: rgba(232, 146, 10, 0.12);
+              border: 1px solid rgba(232, 146, 10, 0.3);
+              color: #e8920a;
+              font-size: 0.68rem;
+              letter-spacing: 0.2em;
+              text-transform: uppercase;
+              padding: 5px 14px;
+              border-radius: 20px;
+              margin-bottom: 16px;
+              font-weight: 700;
+            "
+          >
+            ⚡ Nouveau
+          </div>
+          <h2
+            style="
+              font-size: clamp(1.8rem, 4vw, 2.8rem);
+              color: white;
+              font-weight: 800;
+              line-height: 1.1;
+              margin-bottom: 8px;
+            "
+          >
+            Commandez & Payez <span style="color: #e8920a">en ligne</span>
+          </h2>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 0.9rem;
+              max-width: 480px;
+              margin: 0 auto;
+              line-height: 1.7;
+            "
+          >
+            Passez votre commande directement sur notre site et payez avec votre
+            mobile money préféré.
+          </p>
+        </div>
+
+        <!-- Modes de paiement -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+          "
+        >
+          <div
+            style="
+              background: rgba(255, 102, 0, 0.1);
+              border: 1px solid rgba(255, 102, 0, 0.25);
+              border-radius: 10px;
+              padding: 20px 16px;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                background: #ff6600;
+                color: white;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 900;
+                font-size: 0.85rem;
+                margin: 0 auto 10px;
+              "
+            >
+              OM
+            </div>
+            <div
+              style="
+                color: white;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+              "
+            >
+              Orange Money
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.72rem">
+              Paiement instantané
+            </div>
+          </div>
+          <div
+            style="
+              background: rgba(26, 115, 232, 0.1);
+              border: 1px solid rgba(26, 115, 232, 0.25);
+              border-radius: 10px;
+              padding: 20px 16px;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                background: #1a73e8;
+                color: white;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 900;
+                font-size: 0.85rem;
+                margin: 0 auto 10px;
+              "
+            >
+              Wave
+            </div>
+            <div
+              style="
+                color: white;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+              "
+            >
+              Wave
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.72rem">
+              Zéro frais
+            </div>
+          </div>
+          <div
+            style="
+              background: rgba(0, 102, 204, 0.1);
+              border: 1px solid rgba(0, 102, 204, 0.25);
+              border-radius: 10px;
+              padding: 20px 16px;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                background: #0066cc;
+                color: white;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 900;
+                font-size: 0.75rem;
+                margin: 0 auto 10px;
+              "
+            >
+              Moov
+            </div>
+            <div
+              style="
+                color: white;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+              "
+            >
+              Moov Money
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.72rem">
+              Rapide & fiable
+            </div>
+          </div>
+          <div
+            style="
+              background: rgba(37, 211, 102, 0.1);
+              border: 1px solid rgba(37, 211, 102, 0.25);
+              border-radius: 10px;
+              padding: 20px 16px;
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                background: #25d366;
+                color: white;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                margin: 0 auto 10px;
+              "
+            >
+              💬
+            </div>
+            <div
+              style="
+                color: white;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+              "
+            >
+              WhatsApp
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.72rem">
+              Réponse rapide
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div
+          style="
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+          "
+        >
+          <a
+            href="https://wa.me/226"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              background: #25d366;
+              color: white;
+              padding: 14px 32px;
+              border-radius: 6px;
+              font-size: 0.9rem;
+              font-weight: 800;
+              text-decoration: none;
+              letter-spacing: 0.06em;
+              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+            "
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+            Commander via WhatsApp
+          </a>
+          <a
+            href="tel:+226"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              background: rgba(255, 255, 255, 0.08);
+              color: white;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              padding: 14px 32px;
+              border-radius: 6px;
+              font-size: 0.9rem;
+              font-weight: 700;
+              text-decoration: none;
+              letter-spacing: 0.06em;
+            "
+            >📞 Appeler directement</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+     SYSTÈME DE COMMANDE COMPLET
+     Parcours : Menu → Panier → Paiement
+═══════════════════════════════════ -->
+
+    <style>
+      /* ── MENU AVEC BOUTONS PANIER ── */
+      .mitem {
+        position: relative;
+      }
+      .add-to-cart {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(200, 134, 26, 0.15);
+      }
+      .acp {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.1rem;
+        color: var(--amber2);
+      }
+      .acbtn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--amber);
+        color: var(--black);
+        border: none;
+        border-radius: 2px;
+        padding: 6px 14px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-family: "Jost", sans-serif;
+      }
+      .acbtn:hover {
+        background: var(--amber2);
+        transform: scale(1.03);
+      }
+      .acbtn.added {
+        background: #25d366;
+        color: white;
+      }
+
+      /* ── PANIER FLOTTANT ── */
+      #cart-fab {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        z-index: 999;
+        background: var(--amber);
+        color: var(--black);
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        cursor: pointer;
+        box-shadow: 0 6px 24px rgba(200, 134, 26, 0.5);
+        transition: all 0.3s;
+        border: none;
+        animation: cartPop 0.3s ease;
+      }
+      #cart-fab:hover {
+        transform: scale(1.1);
+        background: var(--amber2);
+      }
+      #cart-fab.hidden {
+        display: none;
+      }
+      @keyframes cartPop {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      #cart-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: #e53935;
+        color: white;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        font-size: 0.72rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Jost", sans-serif;
+      }
+
+      /* ── MODAL PANIER ── */
+      #cart-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: flex-end;
+      }
+      #cart-overlay.open {
+        display: flex;
+      }
+      #cart-modal {
+        background: var(--dark);
+        border-radius: 16px 16px 0 0;
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-top: 2px solid var(--amber);
+        animation: slideUp 0.3s ease;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .cart-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 1.8rem;
+        border-bottom: 1px solid rgba(200, 134, 26, 0.15);
+        position: sticky;
+        top: 0;
+        background: var(--dark);
+        z-index: 1;
+      }
+      .cart-modal-header h3 {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.5rem;
+        color: var(--white);
+        letter-spacing: 0.08em;
+      }
+      .cart-close {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: var(--text);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .cart-close:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Étapes */
+      .cart-steps {
+        display: flex;
+        padding: 1rem 1.8rem;
+        gap: 0;
+        border-bottom: 1px solid rgba(200, 134, 26, 0.1);
+      }
+      .step {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .step::after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        width: 100%;
+        height: 1px;
+        background: rgba(200, 134, 26, 0.2);
+      }
+      .step:last-child::after {
+        display: none;
+      }
+      .step-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(200, 134, 26, 0.15);
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        font-family: "Jost", sans-serif;
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        transition: all 0.3s;
+      }
+      .step.active .step-num {
+        background: var(--amber);
+        color: var(--black);
+        border-color: var(--amber);
+      }
+      .step.done .step-num {
+        background: #25d366;
+        color: white;
+        border-color: #25d366;
+      }
+      .step-lbl {
+        font-size: 0.6rem;
+        color: var(--muted);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .step.active .step-lbl {
+        color: var(--amber2);
+      }
+
+      /* Panneaux */
+      .cart-panel {
+        padding: 1.5rem 1.8rem;
+        display: none;
+      }
+      .cart-panel.active {
+        display: block;
+      }
+
+      /* Items panier */
+      .cart-item-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(200, 134, 26, 0.08);
+      }
+      .cart-item-row:last-child {
+        border-bottom: none;
+      }
+      .ci-emoji {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+      .ci-info {
+        flex: 1;
+      }
+      .ci-name {
+        font-weight: 700;
+        color: var(--white);
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+      }
+      .ci-price {
+        font-size: 0.78rem;
+        color: var(--amber2);
+        font-weight: 600;
+      }
+      .ci-qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .cqbtn {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(200, 134, 26, 0.15);
+        color: var(--text);
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        font-weight: 800;
+      }
+      .cqbtn:hover {
+        background: var(--amber);
+        color: var(--black);
+      }
+      .cq-num {
+        font-weight: 800;
+        color: var(--white);
+        min-width: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .ci-total {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.1rem;
+        color: var(--amber2);
+        min-width: 90px;
+        text-align: right;
+      }
+
+      /* Total */
+      .cart-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(200, 134, 26, 0.08);
+        border: 1px solid rgba(200, 134, 26, 0.15);
+        border-radius: 6px;
+        padding: 1rem 1.2rem;
+        margin-top: 1rem;
+      }
+      .ct-label {
+        font-size: 0.78rem;
+        color: var(--muted);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .ct-amount {
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.6rem;
+        color: var(--amber2);
+      }
+
+      /* Infos client */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .form-group label {
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(200, 134, 26, 0.18);
+        color: var(--text);
+        padding: 0.75rem 1rem;
+        font-family: "Jost", sans-serif;
+        font-size: 0.88rem;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--amber);
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: var(--muted);
+      }
+      .form-group select option {
+        background: var(--dark2);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      /* Modes de paiement */
+      .pay-opts {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+      }
+      .pay-opt {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px;
+        border: 2px solid rgba(200, 134, 26, 0.12);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .pay-opt:hover {
+        border-color: rgba(200, 134, 26, 0.3);
+      }
+      .pay-opt.selected {
+        border-color: var(--amber);
+        background: rgba(200, 134, 26, 0.06);
+      }
+      .pay-logo-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 0.75rem;
+        color: white;
+      }
+      .pay-opt-info h4 {
+        font-weight: 700;
+        color: var(--white);
+        font-size: 0.88rem;
+        margin-bottom: 2px;
+      }
+      .pay-opt-info p {
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-weight: 300;
+      }
+      .pay-radio {
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid rgba(200, 134, 26, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+      .pay-opt.selected .pay-radio {
+        background: var(--amber);
+        border-color: var(--amber);
+      }
+      .pay-opt.selected .pay-radio::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--black);
+      }
+
+      /* Instructions OM/Wave */
+      .pay-instructions {
+        background: rgba(255, 102, 0, 0.06);
+        border: 1px solid rgba(255, 102, 0, 0.2);
+        border-radius: 6px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .pay-instructions.show {
+        display: block;
+      }
+      .pi-title {
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: #ff6600;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .pi-step {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .pi-num {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff6600;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pi-text {
+        font-size: 0.75rem;
+        color: var(--text);
+        line-height: 1.5;
+      }
+      .pi-text strong {
+        color: #ff6600;
+      }
+      .pi-number-box {
+        background: #ff6600;
+        color: white;
+        border-radius: 4px;
+        padding: 8px 12px;
+        text-align: center;
+        margin-top: 8px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+      .pi-number-box span {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 400;
+        opacity: 0.8;
+        margin-bottom: 2px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* Wave instructions */
+      .pay-instructions.wave-inst {
+        background: rgba(26, 115, 232, 0.06);
+        border-color: rgba(26, 115, 232, 0.2);
+      }
+      .pay-instructions.wave-inst .pi-title {
+        color: #1a73e8;
+      }
+      .pay-instructions.wave-inst .pi-num {
+        background: #1a73e8;
+      }
+      .pay-instructions.wave-inst strong {
+        color: #1a73e8;
+      }
+      .pay-instructions.wave-inst .pi-number-box {
+        background: #1a73e8;
+      }
+
+      /* Boutons navigation */
+      .cart-nav {
+        display: flex;
+        gap: 10px;
+        margin-top: 1.2rem;
+      }
+      .btn-next {
+        flex: 1;
+        background: var(--amber);
+        color: var(--black);
+        border: none;
+        border-radius: 4px;
+        padding: 14px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.25s;
+        font-family: "Jost", sans-serif;
+        box-shadow: 0 4px 16px rgba(200, 134, 26, 0.3);
+      }
+      .btn-next:hover {
+        background: var(--amber2);
+        transform: translateY(-1px);
+      }
+      .btn-next:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .btn-back {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border: 1px solid rgba(200, 134, 26, 0.15);
+        border-radius: 4px;
+        padding: 14px 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: "Jost", sans-serif;
+      }
+      .btn-back:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Confirmation finale */
+      .confirm-box {
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .confirm-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        display: block;
+        animation: bounce 0.6s ease;
+      }
+      @keyframes bounce {
+        0% {
+          transform: scale(0);
+        }
+        60% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .confirm-box h3 {
+        font-family: "Bebas Neue", cursive;
+        font-size: 2rem;
+        color: var(--white);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.5rem;
+      }
+      .confirm-box p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .confirm-ref {
+        background: rgba(200, 134, 26, 0.1);
+        border: 1px solid rgba(200, 134, 26, 0.2);
+        border-radius: 4px;
+        padding: 0.8rem 1.2rem;
+        margin: 1rem 0;
+        font-family: "Bebas Neue", cursive;
+        font-size: 1.1rem;
+        color: var(--amber2);
+        letter-spacing: 0.1em;
+      }
+      .confirm-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25d366;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        margin-top: 1rem;
+      }
+    </style>
+
+    <!-- BOUTON PANIER FLOTTANT -->
+    <button id="cart-fab" class="hidden" onclick="openCart()">
+      🛒 <span id="cart-badge">0</span>
+    </button>
+
+    <!-- MODAL PANIER -->
+    <div id="cart-overlay" onclick="if (event.target === this) closeCart();">
+      <div id="cart-modal">
+        <!-- En-tête -->
+        <div class="cart-modal-header">
+          <h3>🛒 Votre commande</h3>
+          <button class="cart-close" onclick="closeCart()">✕</button>
+        </div>
+
+        <!-- Étapes -->
+        <div class="cart-steps">
+          <div class="step active" id="step1">
+            <div class="step-num">1</div>
+            <div class="step-lbl">Panier</div>
+          </div>
+          <div class="step" id="step2">
+            <div class="step-num">2</div>
+            <div class="step-lbl">Infos</div>
+          </div>
+          <div class="step" id="step3">
+            <div class="step-num">3</div>
+            <div class="step-lbl">Paiement</div>
+          </div>
+          <div class="step" id="step4">
+            <div class="step-num">4</div>
+            <div class="step-lbl">Confirmé</div>
+          </div>
+        </div>
+
+        <!-- PANEL 1 : Panier -->
+        <div class="cart-panel active" id="panel1">
+          <div id="cart-items-list"></div>
+          <div class="cart-total-row">
+            <span class="ct-label">Total à payer</span>
+            <span class="ct-amount" id="modal-total">0 FCFA</span>
+          </div>
+          <div class="cart-nav">
+            <button class="btn-next" id="btn-to-step2" onclick="goStep(2)">
+              Continuer → Mes infos
+            </button>
+          </div>
+        </div>
+
+        <!-- PANEL 2 : Infos client -->
+        <div class="cart-panel" id="panel2">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom & Nom</label
+              ><input type="text" id="c-name" placeholder="Votre nom" />
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label
+              ><input type="tel" id="c-phone" placeholder="+226 XX XX XX XX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Type de commande</label>
+            <select id="c-type">
+              <option value="surplace">Sur place</option>
+              <option value="emporter">À emporter</option>
+              <option value="livraison">Livraison à domicile</option>
+            </select>
+          </div>
+          <div class="form-group" id="addr-group" style="display: none">
+            <label>Adresse de livraison</label>
+            <input
+              type="text"
+              id="c-addr"
+              placeholder="Quartier, rue, description..."
+            />
+          </div>
+          <div class="form-group">
+            <label>Remarques (optionnel)</label>
+            <textarea
+              id="c-notes"
+              rows="2"
+              placeholder="Allergies, préférences..."
+              style="resize: none"
+            ></textarea>
+          </div>
+          <div class="cart-nav">
+            <button class="btn-back" onclick="goStep(1)">← Retour</button>
+            <button class="btn-next" onclick="goStep(3)">
+              Continuer → Paiement
+            </button>
+          </div>
+        </div>
+
+        <!-- PANEL 3 : Paiement -->
+        <div class="cart-panel" id="panel3">
+          <p
+            style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem"
+          >
+            Choisissez votre mode de paiement :
+          </p>
+          <div class="pay-opts">
+            <div class="pay-opt selected" onclick="selectPayment(this, 'om')">
+              <div class="pay-logo-box" style="background: #ff6600">OM</div>
+              <div class="pay-opt-info">
+                <h4>Orange Money</h4>
+                <p>Paiement instantané · Le plus utilisé</p>
+              </div>
+              <div class="pay-radio"></div>
+            </div>
+            <div class="pay-opt" onclick="selectPayment(this, 'wave')">
+              <div class="pay-logo-box" style="background: #1a73e8">Wave</div>
+              <div class="pay-opt-info">
+                <h4>Wave</h4>
+                <p>Zéro frais · Très populaire</p>
+              </div>
+              <div class="pay-radio"></div>
+            </div>
+            <div class="pay-opt" onclick="selectPayment(this, 'moov')">
+              <div class="pay-logo-box" style="background: #0066cc">Moov</div>
+              <div class="pay-opt-info">
+                <h4>Moov Money</h4>
+                <p>Rapide et fiable</p>
+              </div>
+              <div class="pay-radio"></div>
+            </div>
+            <div class="pay-opt" onclick="selectPayment(this, 'cash')">
+              <div
+                class="pay-logo-box"
+                style="background: #2d9b4e; font-size: 1.2rem"
+              >
+                💵
+              </div>
+              <div class="pay-opt-info">
+                <h4>Paiement à la livraison</h4>
+                <p>Cash à la réception</p>
+              </div>
+              <div class="pay-radio"></div>
+            </div>
+          </div>
+
+          <!-- PAIEMENT INTELLIGENT -->
+          <div id="smart-pay-area">
+            <!-- Orange Money -->
+            <div class="pay-instructions show" id="om-inst">
+              <div class="pi-title">📱 Orange Money — Paiement en 1 clic</div>
+              <p
+                style="
+                  font-size: 0.75rem;
+                  color: var(--muted);
+                  margin-bottom: 10px;
+                  line-height: 1.5;
+                "
+              >
+                Cliquez sur le bouton — le code USSD s'ouvre automatiquement sur
+                votre téléphone avec le montant déjà pré-rempli.
+              </p>
+              <a
+                id="om-ussd-btn"
+                href="#"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 10px;
+                  background: #ff6600;
+                  color: white;
+                  padding: 14px;
+                  border-radius: 6px;
+                  font-size: 0.88rem;
+                  font-weight: 800;
+                  text-decoration: none;
+                  letter-spacing: 0.06em;
+                  margin-bottom: 10px;
+                  box-shadow: 0 4px 16px rgba(255, 102, 0, 0.35);
+                "
+              >
+                📞 Payer maintenant avec Orange Money
+              </a>
+              <p
+                style="
+                  font-size: 0.68rem;
+                  color: var(--muted);
+                  text-align: center;
+                "
+              >
+                Si le composeur ne s'ouvre pas automatiquement :<br />
+                tapez
+                <strong style="color: #ff6600">*144*3*05145454*MONTANT#</strong>
+              </p>
+            </div>
+
+            <!-- Wave -->
+            <div class="pay-instructions wave-inst" id="wave-inst">
+              <div class="pi-title">🌊 Wave — Paiement en 1 clic</div>
+              <p
+                style="
+                  font-size: 0.75rem;
+                  color: var(--muted);
+                  margin-bottom: 10px;
+                  line-height: 1.5;
+                "
+              >
+                Cliquez sur le bouton — l'appli Wave s'ouvre avec le numéro et
+                le montant pré-remplis.
+              </p>
+              <a
+                id="wave-link-btn"
+                href="#"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 10px;
+                  background: #1a73e8;
+                  color: white;
+                  padding: 14px;
+                  border-radius: 6px;
+                  font-size: 0.88rem;
+                  font-weight: 800;
+                  text-decoration: none;
+                  letter-spacing: 0.06em;
+                  margin-bottom: 10px;
+                  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);
+                "
+              >
+                🌊 Payer maintenant avec Wave
+              </a>
+              <p
+                style="
+                  font-size: 0.68rem;
+                  color: var(--muted);
+                  text-align: center;
+                "
+              >
+                Si l'appli ne s'ouvre pas :<br />
+                envoyez <strong style="color: #1a73e8">MONTANT</strong> au
+                <strong style="color: #1a73e8">+226 05 14 54 54</strong> dans
+                Wave
+              </p>
+            </div>
+
+            <!-- Moov -->
+            <div
+              class="pay-instructions"
+              id="moov-inst"
+              style="
+                background: rgba(0, 102, 204, 0.06);
+                border: 1px solid rgba(0, 102, 204, 0.2);
+              "
+            >
+              <div class="pi-title" style="color: #0066cc">📱 Moov Money</div>
+              <a
+                id="moov-ussd-btn"
+                href="#"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 10px;
+                  background: #0066cc;
+                  color: white;
+                  padding: 14px;
+                  border-radius: 6px;
+                  font-size: 0.88rem;
+                  font-weight: 800;
+                  text-decoration: none;
+                  letter-spacing: 0.06em;
+                  margin-bottom: 10px;
+                "
+                >📞 Payer avec Moov Money</a
+              >
+              <p
+                style="
+                  font-size: 0.68rem;
+                  color: var(--muted);
+                  text-align: center;
+                "
+              >
+                Code manuel :
+                <strong style="color: #0066cc">*555*05145454*MONTANT#</strong>
+              </p>
+            </div>
+
+            <!-- Cash -->
+            <div
+              class="pay-instructions"
+              id="cash-inst"
+              style="
+                background: rgba(45, 155, 78, 0.06);
+                border: 1px solid rgba(45, 155, 78, 0.2);
+              "
+            >
+              <div class="pi-title" style="color: #2d9b4e">
+                💵 Paiement à la livraison
+              </div>
+              <p
+                style="font-size: 0.78rem; color: var(--text); line-height: 1.6"
+              >
+                Vous payez en <strong>espèces</strong> directement au livreur ou
+                sur place.<br />
+                Préparez la somme exacte de
+                <strong id="cash-amount" style="color: #2d9b4e">—</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- BOUTON CONFIRMER + J'AI PAYÉ -->
+          <div class="cart-nav" style="flex-direction: column; gap: 8px">
+            <button
+              class="btn-next"
+              onclick="preparePayment()"
+              id="btn-pay-now"
+            >
+              💳 Procéder au paiement
+            </button>
+            <button
+              class="btn-next"
+              id="btn-confirm-paid"
+              onclick="confirmOrder()"
+              style="
+                display: none;
+                background: #25d366;
+                box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+              "
+            >
+              ✅ J'ai payé — Confirmer ma commande
+            </button>
+            <button class="btn-back" onclick="goStep(2)">← Retour</button>
+          </div>
+        </div>
+
+        <!-- PANEL 4 : Confirmation -->
+        <div class="cart-panel" id="panel4">
+          <div class="confirm-box">
+            <span class="confirm-icon">🎉</span>
+            <h3>Commande confirmée !</h3>
+            <div class="confirm-ref" id="confirm-ref">Réf : #WAKA-0000</div>
+            <p>
+              Merci <strong id="confirm-name"></strong> ! Votre commande est
+              bien enregistrée. Notre équipe vous contacte sous
+              <strong>5 minutes</strong>.
+            </p>
+            <p
+              style="
+                margin-top: 0.5rem;
+                font-size: 0.78rem;
+                color: var(--amber2);
+              "
+              id="confirm-pay-note"
+            ></p>
+            <a
+              class="confirm-wa"
+              href="https://wa.me/22605145454"
+              target="_blank"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              Suivre sur WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ── État du panier ──
+      let cart = [];
+      let currentStep = 1;
+      let selectedPayment = "om";
+
+      // ── Ajouter au panier ──
+      function addToCart(name, price, emoji) {
+        const existing = cart.find((i) => i.name === name);
+        if (existing) {
+          existing.qty++;
+        } else {
+          cart.push({ name, price, emoji, qty: 1 });
+        }
+        updateCartUI();
+        // Feedback visuel
+        try {
+          document.querySelectorAll(".acbtn").forEach((b) => {
+            if (b.dataset.name === name) {
+              b.classList.add("added");
+              b.textContent = "✓ Ajouté";
+              setTimeout(() => {
+                b.classList.remove("added");
+                b.textContent = "+ Ajouter";
+              }, 1500);
+            }
+          });
+        } catch (e) {}
+      }
+
+      // ── Mettre à jour l'UI ──
+      function updateCartUI() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        const fab = document.getElementById("cart-fab");
+        const badge = document.getElementById("cart-badge");
+        fab.classList.toggle("hidden", count === 0);
+        badge.textContent = count;
+        const totalStr = total.toLocaleString("fr-FR") + " FCFA";
+        const safeSet = (id, val) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = val;
+        };
+        safeSet("modal-total", totalStr);
+        safeSet("om-amount", totalStr);
+        safeSet("wave-amount", totalStr);
+        safeSet("cash-amount", totalStr);
+        renderCartItems();
+      }
+
+      function renderCartItems() {
+        const list = document.getElementById("cart-items-list");
+        if (cart.length === 0) {
+          list.innerHTML =
+            '<p style="text-align:center;color:var(--muted);padding:2rem;font-size:0.85rem;">Votre panier est vide — ajoutez des plats depuis le menu ↑</p>';
+          return;
+        }
+        list.innerHTML = cart
+          .map(
+            (item, idx) => `
+    <div class="cart-item-row">
+      <span class="ci-emoji">${item.emoji}</span>
+      <div class="ci-info">
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-price">${item.price.toLocaleString("fr-FR")} FCFA / unité</div>
+      </div>
+      <div class="ci-qty">
+        <button class="cqbtn" onclick="changeQty(${idx},-1)">−</button>
+        <span class="cq-num">${item.qty}</span>
+        <button class="cqbtn" onclick="changeQty(${idx},1)">+</button>
+      </div>
+      <span class="ci-total">${(item.price * item.qty).toLocaleString("fr-FR")} FCFA</span>
+    </div>`,
+          )
+          .join("");
+      }
+
+      function changeQty(idx, delta) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) cart.splice(idx, 1);
+        updateCartUI();
+      }
+
+      // ── Navigation étapes ──
+      function goStep(n) {
+        if (n === 2 && cart.length === 0) {
+          alert("Ajoutez au moins un article !");
+          return;
+        }
+        currentStep = n;
+        document
+          .querySelectorAll(".cart-panel")
+          .forEach((p, i) => p.classList.toggle("active", i + 1 === n));
+        document.querySelectorAll(".step").forEach((s, i) => {
+          s.classList.toggle("active", i + 1 === n);
+          s.classList.toggle("done", i + 1 < n);
+        });
+      }
+
+      // ── Type de commande ──
+      document.getElementById("c-type").addEventListener("change", function () {
+        document.getElementById("addr-group").style.display =
+          this.value === "livraison" ? "block" : "none";
+      });
+
+      // ── Sélection paiement ──
+      function selectPayment(el, method) {
+        document
+          .querySelectorAll(".pay-opt")
+          .forEach((o) => o.classList.remove("selected"));
+        el.classList.add("selected");
+        selectedPayment = method;
+        // Afficher la bonne instruction
+        ["om-inst", "wave-inst", "moov-inst", "cash-inst"].forEach((id) => {
+          const el2 = document.getElementById(id);
+          if (el2) el2.classList.remove("show");
+        });
+        const target = document.getElementById(method + "-inst");
+        if (target) target.classList.add("show");
+        // Afficher directement confirmer si cash
+        document.getElementById("btn-pay-now").style.display =
+          method === "cash" ? "none" : "block";
+        document.getElementById("btn-confirm-paid").style.display =
+          method === "cash" ? "block" : "none";
+        // Mettre à jour le montant cash
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const cashEl = document.getElementById("cash-amount");
+        if (cashEl)
+          cashEl.textContent = total.toLocaleString("fr-FR") + " FCFA";
+      }
+
+      // ── Préparer le paiement (ouvrir OM/Wave) ──
+      function preparePayment() {
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const num = "05145454"; // numéro sans +226
+        const fullNum = "22605145454";
+
+        if (selectedPayment === "om") {
+          // USSD Orange Money : *144*3*NUMERO*MONTANT#
+          const ussd = encodeURIComponent("*144*3*" + num + "*" + total + "#");
+          document.getElementById("om-ussd-btn").href = "tel:" + ussd;
+          window.location.href = "tel:" + ussd;
+        } else if (selectedPayment === "wave") {
+          // Lien Wave profond
+          const waveLink =
+            "https://pay.wave.com/m/M_OfXqxGDnSX3U/c/bf/?amount=" + total;
+          document.getElementById("wave-link-btn").href = waveLink;
+          window.open(waveLink, "_blank");
+        } else if (selectedPayment === "moov") {
+          const ussd = encodeURIComponent("*555*" + num + "*" + total + "#");
+          document.getElementById("moov-ussd-btn").href = "tel:" + ussd;
+          window.location.href = "tel:" + ussd;
+        }
+
+        // Afficher le bouton "J'ai payé" après 2 secondes
+        setTimeout(
+          () => {
+            document.getElementById("btn-pay-now").style.display = "none";
+            document.getElementById("btn-confirm-paid").style.display = "block";
+          },
+          selectedPayment === "cash" ? 0 : 2000,
+        );
+      }
+
+      // ── Ouvrir/Fermer ──
+      function openCart() {
+        document.getElementById("cart-overlay").classList.add("open");
+        goStep(1);
+      }
+      function closeCart() {
+        document.getElementById("cart-overlay").classList.remove("open");
+      }
+
+      // ── Confirmer la commande ──
+      function confirmOrder() {
+        const name = document.getElementById("c-name").value || "Client";
+        const phone = document.getElementById("c-phone").value || "";
+        const type = document.getElementById("c-type").value;
+        const notes = document.getElementById("c-notes").value || "";
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const ref = "WAKA-" + Math.floor(1000 + Math.random() * 9000);
+        const payLabels = {
+          om: "Orange Money",
+          wave: "Wave",
+          moov: "Moov Money",
+          cash: "Cash à la livraison",
+        };
+        const typeLabels = {
+          surplace: "Sur place",
+          emporter: "À emporter",
+          livraison: "Livraison à domicile",
+        };
+
+        // Message WhatsApp automatique pour le gérant
+        const items = cart
+          .map(
+            (i) =>
+              `  • ${i.name} x${i.qty} = ${(i.price * i.qty).toLocaleString("fr-FR")} FCFA`,
+          )
+          .join("%0A");
+        const waMsg =
+          `🛒 *NOUVELLE COMMANDE — Réf : ${ref}*%0A%0A` +
+          `👤 *Client :* ${name}%0A` +
+          `📞 *Tél :* ${phone}%0A` +
+          `📦 *Type :* ${typeLabels[type]}%0A` +
+          `💳 *Paiement :* ${payLabels[selectedPayment]}%0A%0A` +
+          `*Commande :*%0A${items}%0A%0A` +
+          `*TOTAL : ${total.toLocaleString("fr-FR")} FCFA*` +
+          (notes ? `%0A%0A📝 Note : ${notes}` : "") +
+          `%0A%0A✅ Paiement effectué — Veuillez confirmer.`;
+
+        document.getElementById("confirm-name").textContent = name;
+        document.getElementById("confirm-ref").textContent = "Réf : #" + ref;
+        const payNotes = {
+          om: "📱 Paiement Orange Money envoyé au +226 05 14 54 54",
+          wave: "🌊 Paiement Wave envoyé au +226 05 14 54 54",
+          moov: "📱 Paiement Moov envoyé au +226 05 14 54 54",
+          cash: "💵 Paiement en espèces à la livraison / sur place",
+        };
+        document.getElementById("confirm-pay-note").textContent =
+          payNotes[selectedPayment] || "";
+
+        // Lien WhatsApp avec message pré-rempli
+        const waLink = "https://wa.me/22605145454?text=" + waMsg;
+        document.querySelector(".confirm-wa").href = waLink;
+
+        // ── Envoyer la commande au serveur ──
+        fetch("http://" + window.location.hostname + ":3000/api/commandes", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            client_nom: name,
+            client_telephone: phone,
+            type_commande: type,
+            adresse_livraison: document.getElementById("c-addr")
+              ? document.getElementById("c-addr").value
+              : "",
+            montant_total: total,
+            mode_paiement: selectedPayment,
+            notes: notes,
+            articles: cart.map((i) => ({
+              plat_id: 1,
+              plat_nom: i.name,
+              plat_prix: i.price,
+              quantite: i.qty,
+            })),
+          }),
+        })
+          .then((r) => r.json())
+          .then((data) => console.log("✅ Commande envoyée au serveur:", data))
+          .catch((err) => console.error("❌ Erreur envoi:", err));
+
+        goStep(4);
+        const savedCart = [...cart];
+        cart = [];
+        updateCartUI();
+      }
+    </script>
+  </body>
+</html>
